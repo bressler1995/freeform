@@ -20,10 +20,18 @@ function setup() {
   current = new Array(cols).fill(0).map(n => new Array(rows).fill(0));
   previous = new Array(cols).fill(0).map(n => new Array(rows).fill(0));
   frameRate(60);
+  keepbusy();
 }
 
 function mouseDragged() {
-  previous[mouseX][mouseY] = random(500, 1500);
+  previous[mouseX][mouseY] = random(500, 1200);
+}
+
+function keepbusy() {
+    previous[parseInt(random(0, width))][parseInt(random(0, height))] = random(500, 1200);
+    setTimeout(function(){
+        keepbusy();
+    }, 1500);
 }
 
 function draw() {
@@ -41,13 +49,10 @@ function draw() {
           2 -
         current[i][j];
       current[i][j] = current[i][j] * dampening;
-      // Unlike in Processing, the pixels array in p5.js has 4 entries
-      // for each pixel, so we have to multiply the index by 4 and then
-      // set the entries for each color component separately.
       let index = (i + j * cols) * 4;
-      pixels[index + 0] = current[i][j];
-      pixels[index + 1] = current[i][j];
-      pixels[index + 2] = current[i][j];
+      pixels[index + 0] = 5 * current[i][j];
+      pixels[index + 1] = 5 * current[i][j];
+      pixels[index + 2] = 5 * current[i][j];
     }
 
   }
