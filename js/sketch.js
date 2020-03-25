@@ -90,7 +90,7 @@ function draw() {
     }
   }
 
-  fill(reds, greens, blues, 160);
+  fill(reds, greens, blues, 180);
   rect(0, 0, windowWidth, windowHeight);
 }
 
