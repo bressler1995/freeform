@@ -2,6 +2,8 @@ let cols;
 let rows;
 let current; // = new float[cols][rows];
 let previous; // = new float[cols][rows];
+let reds = 255;
+let blues = 0;
 
 let dampening = 0.999;
 
@@ -19,7 +21,7 @@ function setup() {
 }
 
 function mouseDragged() {
-  previous[mouseX][mouseY] = 1000;
+  previous[mouseX][mouseY] = random(500, 1000);
 }
 
 function draw() {
@@ -43,12 +45,16 @@ function draw() {
       pixels[index + 1] = current[i][j];
       pixels[index + 2] = current[i][j];
     }
+
   }
   updatePixels();
 
   let temp = previous;
   previous = current;
   current = temp;
+
+  fill(255, 0, 0, 20);
+  rect(0, 0, windowWidth, windowHeight);
 }
 
 function windowResized(){
