@@ -78,11 +78,11 @@ function draw() {
         reds += 0.1;
     }
     if(blues > 50) {
-        blues -= 0.1;
+        blues -= 0.5;
     }
 
     if(greens > 50) {
-        greens -= 0.5;
+        greens -= 0.1;
     }
 
     if(reds >= 200 && blues <= 50 && greens <= 50) {
