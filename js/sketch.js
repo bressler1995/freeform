@@ -15,15 +15,15 @@ function setup() {
   // current = new float[cols][rows];
   current = new Array(cols).fill(0).map(n => new Array(rows).fill(0));
   previous = new Array(cols).fill(0).map(n => new Array(rows).fill(0));
+  frameRate(60);
 }
 
 function mouseDragged() {
-  previous[mouseX][mouseY] = 500;
+  previous[mouseX][mouseY] = 1000;
 }
 
 function draw() {
   background(0);
-
   loadPixels();
   for (let i = 1; i < cols - 1; i++) {
     for (let j = 1; j < rows - 1; j++) {
@@ -49,4 +49,10 @@ function draw() {
   let temp = previous;
   previous = current;
   current = temp;
+}
+
+function windowResized(){
+    resizeCanvas(windowWidth, windowHeight);
+    cols = width;
+    rows = height;
 }
