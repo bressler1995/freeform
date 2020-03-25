@@ -7,7 +7,7 @@ let dampening = 0.999;
 
 function setup() {
   pixelDensity(1);
-  createCanvas(600, 400);
+  createCanvas(windowWidth, windowHeight);
   cols = width;
   rows = height;
   // The following line initializes a 2D cols-by-rows array with zeroes
